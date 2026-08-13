@@ -36,8 +36,24 @@ const { title, description, image } = Astro.props;
       }
 
       pre {
-        @apply overflow-hidden !important;
+        @apply overflow-x-auto !important;
+        white-space: pre;
         @apply border border-base-300 dark:border-base-700 bg-base-200/50 dark:bg-base-950/30 rounded-xl !important;
+      }
+
+      .astro-code {
+        counter-reset: line;
+      }
+
+      .astro-code .line::before {
+        counter-increment: line;
+        content: counter(line);
+        display: inline-block;
+        width: 2.5em;
+        margin-right: 1em;
+        color: rgb(156 163 175);
+        text-align: right;
+        user-select: none;
       }
 
       .line.highlighted {

@@ -71,7 +71,7 @@ export default defineConfig({
         transformerMetaHighlight(),
         transformerNotationHighlight(),
       ],
-      wrap: true,
+      wrap: false,
     },
 
     remarkPlugins: [remarkMath],
