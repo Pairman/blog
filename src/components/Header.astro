@@ -28,7 +28,7 @@ const { active } = Astro.props;
         <div class="text-3xl flex items-center gap-x-2">
           {SHOW_FAVICON_IN_HEADER ? SITE_FAVICON : null}
           <span
-            class="font-bold text-base text-base-950 dark:text-base-50"
+            class="font-bold uppercase text-base text-base-950 dark:text-base-50"
             >{SITE_NAME || SITE_TITLE}</span
           >
         </div>
@@ -38,12 +38,12 @@ const { active } = Astro.props;
       <HeaderLink
         href={BASE + "/"}
         active={active === "blog"}
-        class="text-sm font-semibold leading-6">Blog</HeaderLink
+        class="text-sm font-bold uppercase leading-6">Blog</HeaderLink
       >
       <HeaderLink
         href={BASE + "/about"}
         active={active === "about"}
-        class="text-sm font-semibold leading-6">About</HeaderLink
+        class="text-sm font-bold uppercase leading-6">About</HeaderLink
       >
 
       {SEARCH_ENABLED ? <Search client:visible /> : null}
