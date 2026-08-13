@@ -1,0 +1,57 @@
+---
+title: "Rediscover the Structure of an LLM"
+description: "A clearer way to understand the structure of a decoder-only LLM"
+pubDate: "Aug 13 2026"
+published: true
+tags: ["ai", "llm", "transformer"]
+---
+
+For a long time, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
+
+```
+sequence -> embed -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> ... -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> outputs
+```
+
+In this depiction, each transformer block appears to consist of `MHA -> FFN -> Linear -> Softmax`.
+
+If you thought about it this way too, you were just as wrong as I was. There are barely any explanations that explicitly correct this misconception. Because the same figure from [*Attention Is All You Need*](https://arxiv.org/html/1706.03762v7) appears everywhere, newcomers like me can easily misread the architecture and think in the wrong way for a long time.
+
+![The Transformer - model architecture, from Attention Is All You Need](https://arxiv.org/html/1706.03762v7/Figures/ModalNet-21.png)
+
+To get started, let's think about the structure more generally. A typical neural network can be treated as a function that maps an input to an output, so its structure can be shown as:
+
+```
+input -> network -> output
+```
+
+The network first processes or projects the input, passes it through its main functional component (the **backbone**), and finally processes the result into the output required by the task. In short:
+
+```
+pre-processor -> backbone -> task head
+```
+
+These parts are built from basic arithmetic operations, are usually grouped into **blocks** for re-using. Greater depth enables a network to capture more complex relationships ([*Deep Residual Learning for Image Recognition*](https://arxiv.org/html/1512.03385v1)). Stacking blocks makes the network deeper, forming its backbone:
+
+```
+backbone block -> backbone block -> ... -> backbone block
+```
+
+Overall, the structure looks like:
+
+```
+pre-processor -> backbone (block -> ... -> block) -> task head
+```
+
+For example, an object detector can be shown in the same way:
+
+```
+image -> input preprocessing -> backbone -> detection head -> predictions
+```
+
+Likewise, the structure of a typical decoder-only LLM should be depicted as follows:
+
+```
+sequence -> embed (+pos) -> transformer -> ... -> transformer -> norm -> Linear -> Softmax -> logits
+```
+
+The embedding stage is the pre-processor, multiple transformer blocks (`MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax`) make up the backbone, and the final `Linear -> Softmax` stage is the LM head.

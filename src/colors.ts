@@ -7,6 +7,7 @@ export const colorBaseClasses: Record<string, string> = {
 };
 
 export const colorAccentClasses: Record<string, string> = {
+  neutral: "prose-neutral",
   red: "prose-red",
   orange: "prose-orange",
   amber: "prose-amber",
@@ -27,6 +28,7 @@ export const colorAccentClasses: Record<string, string> = {
 };
 
 export type AccentColor =
+  | "neutral"
   | "red"
   | "orange"
   | "amber"
