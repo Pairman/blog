@@ -59,9 +59,6 @@ export const SOCIAL_LINKS: {
 
 // EVEN MORE SETTINGS:
 
-// if true, will show theme toggle in header (otherwise theme is automatically detected and can't be changed by the readers)
-export const MANUAL_DARK_MODE = true;
-
 // if true, will enable the search functionality
 export const SEARCH_ENABLED = true;
 
