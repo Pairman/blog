@@ -8,7 +8,7 @@ export const SITE = "https://www.pnxlr.eu.org";
 // NUMBER TWO:
 // if repo name is <your-github-username>.github.io set to '/'
 // otherwise set to '/<your-repo-name>'
-export const BASE = "/";
+export const BASE = "";
 
 // MORE SETTINGS:
 
