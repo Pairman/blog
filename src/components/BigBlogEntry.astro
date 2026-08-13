@@ -25,7 +25,7 @@ const { title, description, pubDate, slug, heroImage, tags, noImage } =
         <FormattedDate date={pubDate} />
       </time>
       {tags?.map((tag: string, index: number) => (
-        <span><Tag {tag} />{index < tags.length - 1 ? ", " : null}</span>
+        <span><Tag {tag} />{index < tags.length - 1 ? " " : null}</span>
       ))}
     </div>
     <div class="max-w-xl">
@@ -42,7 +42,7 @@ const { title, description, pubDate, slug, heroImage, tags, noImage } =
         >
         </div>
       </div>
-      <p class="mt-5 text-sm leading-6 text-base-600 dark:text-base-400">
+      <p class="mt-5 text-sm leading-6 text-white">
         {description}
       </p>
     </div>
