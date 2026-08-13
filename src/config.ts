@@ -19,7 +19,7 @@ export const SITE_TITLE = "PA\\RMAN";
 export const SITE_DESCRIPTION = "Scatered notis sette ich doun.”";
 
 // will be used as the icon in the header and the favicon
-export const SITE_FAVICON = "🙃";
+export const SITE_FAVICON = "";
 
 // will be used in the footer as the name of the author (c) <YEAR> <NAME> - LICENSE
 export const NAME = "Pairman";
