@@ -2,7 +2,7 @@
 import { BASE, LICENSE, NAME, SOCIAL_LINKS, SOURCE_LINK } from "../config.ts";
 
 const today = new Date();
-const { showSocial = true, showBorder = true } = Astro.props;
+const { showBorder = false } = Astro.props;
 ---
 
 <footer class="">
@@ -12,7 +12,7 @@ const { showSocial = true, showBorder = true } = Astro.props;
       { "border-t border-base-200 dark:border-base-800": showBorder },
     ]}
   >
-    {showSocial ? <div class="flex justify-center items-center gap-x-6 md:order-2">
+    <div class="flex justify-center items-center gap-x-6 md:order-2">
       {
         SOCIAL_LINKS.FACEBOOK_URL ? (
           <a
@@ -198,7 +198,7 @@ const { showSocial = true, showBorder = true } = Astro.props;
           </a>
         ) : null
       }
-    </div> : null}
+    </div>
     <p
       class="mt-8 text-center text-sm/6 text-base-600 dark:text-base-400 md:order-1 md:mt-0 text-pretty"
     >
