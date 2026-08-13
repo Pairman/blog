@@ -21,9 +21,9 @@ const { title, description, pubDate, slug, heroImage, tags, noImage } =
       <time datetime={pubDate} class="text-base-500 shrink-0">
         <FormattedDate date={pubDate} />
       </time>
-      <div class="flex gap-2 flex-wrap">
+      <div class="flex flex-wrap">
         {tags?.map((tag: string, index: number) => (
-          <span><Tag {tag} />{index < tags.length - 1 ? "," : null}</span>
+          <span><Tag {tag} />{index < tags.length - 1 ? ", " : null}</span>
         ))}
       </div>
     </div>
