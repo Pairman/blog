@@ -51,9 +51,6 @@ const blog = defineCollection({
     // whether to hide the hero image in the blog post
     noImage: z.boolean().optional(),
 
-    // replace the default og image with a custom one, will also not show the title and description in the og image (add it yourself)
-    // has to be in /src/assets folder and has to start with `/src/assets/`
-    customOGImage: z.string().optional(),
   }),
 });
 
