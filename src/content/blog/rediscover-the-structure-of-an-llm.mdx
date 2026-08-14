@@ -9,10 +9,10 @@ tags: ["ai", "llm", "transformer"]
 For long, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
 
 ```
-sequence -> embedding -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> ... -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> outputs
+sequence -> embedding -> {MHA -> residual+norm -> MHA -> residual+norm -> FFN -> Linear -> residual -> Softmax} -> ... -> {MHA -> residual+norm -> FFN -> Linear  residual -> Softmax} -> outputs
 ```
 
-Where each transformer block appears to consist of `MHA -> FFN -> Linear -> Softmax`.
+Where each transformer block appears to consist of `MHA -> residual+norm -> MHA -> FFN -> Linear -> Softmax`.
 
 If you thought about it this way too, you were just as wrong as I was. There are barely any explanations that explicitly correct this misconception. Because the same figure from [*Attention Is All You Need*](https://arxiv.org/html/1706.03762v7) appears everywhere, newcomers like me can easily misread the architecture and think in the wrong way for a long time.
 
@@ -62,4 +62,4 @@ Likewise, the structure of a typical decoder-only LLM should be depicted as foll
 sequence -> embedding -> transformer -> ... -> transformer -> norm -> Linear -> Softmax -> logits
 ```
 
-The embedding stage is the pre-processor, multiple transformer blocks (`MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax`) make up the backbone, and the final `Linear -> Softmax` stage is the LM head.
+The embedding stage is the pre-processor. A decoder-only transformer block has one `MHA -> residual+norm`, since they don't need the second one for cross attention with an encoder, hence `MHA -> residual+norm -> FFN -> Linear  residual -> Softmax`. Multiple transformer blocks make up the backbone. And the final `Linear -> Softmax` stage is the LM head.
