@@ -9,7 +9,7 @@ tags: ["ai", "llm", "transformer"]
 For long, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
 
 ```
-sequence -> embed -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> ... -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> outputs
+sequence -> embedding -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> ... -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> outputs
 ```
 
 Where each transformer block appears to consist of `MHA -> FFN -> Linear -> Softmax`.
@@ -55,7 +55,7 @@ image -> input preprocessing -> backbone -> detection head -> predictions
 Likewise, the structure of a typical decoder-only LLM should be depicted as follows:
 
 ```
-sequence -> embed (+pos) -> transformer -> ... -> transformer -> norm -> Linear -> Softmax -> logits
+sequence -> embedding -> transformer -> ... -> transformer -> norm -> Linear -> Softmax -> logits
 ```
 
 The embedding stage is the pre-processor, multiple transformer blocks (`MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax`) make up the backbone, and the final `Linear -> Softmax` stage is the LM head.
