@@ -9,7 +9,7 @@ tags: ["ai", "llm", "transformer"]
 For long, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
 
 ```,wrap
-sequence -> embedding -> {MHA -> residual+norm -> MHA -> residual+norm -> FFN -> linear -> residual -> softmax} -> ... -> {MHA -> residual+norm -> FFN -> linear  residual -> softmax} -> outputs
+sequence -> embedding -> {MHA -> residual+norm -> MHA -> residual+norm -> FFN -> linear -> residual -> softmax} -> ... -> {MHA -> residual+norm -> FFN -> linear + residual -> softmax} -> outputs
 ```
 
 Where each transformer block appears to consist of `MHA -> residual+norm -> MHA -> FFN -> linear -> softmax`.
