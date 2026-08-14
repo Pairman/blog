@@ -10,30 +10,6 @@ const { title, description, image } = Astro.props;
 
     <style is:global>
       @font-face {
-        font-family: "IBM Plex Mono";
-        src: url("/src/assets/fonts/IBMPlexMono-Regular.ttf") format("truetype");
-        font-weight: 400;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "IBM Plex Mono";
-        src: url("/src/assets/fonts/IBMPlexMono-SemiBold.ttf") format("truetype");
-        font-weight: 600;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
-        font-family: "IBM Plex Mono";
-        src: url("/src/assets/fonts/IBMPlexMono-Bold.ttf") format("truetype");
-        font-weight: 700;
-        font-style: normal;
-        font-display: swap;
-      }
-
-      @font-face {
         font-family: "Poppins";
         src: url("/src/assets/fonts/Poppins-Regular.ttf") format("truetype");
         font-weight: 400;
@@ -65,7 +41,7 @@ const { title, description, image } = Astro.props;
       h2,
       h3,
       nav {
-        font-family: "IBM Plex Mono", monospace;
+        font-family: "Poppins", "Noto Sans CJK SC", "Microsoft YaHei", sans-serif;
         text-transform: uppercase;
         font-weight: 700;
       }

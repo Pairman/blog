@@ -47,7 +47,7 @@ export const { getStaticPaths, GET } = OGImageRoute({
     font: {
       /** Font style for the page title. */
       title: {
-        families: ["IBM Plex Mono"],
+        families: ["Poppins"],
         color: [255, 255, 255],
         size: 80,
         weight: "SemiBold",
@@ -59,9 +59,8 @@ export const { getStaticPaths, GET } = OGImageRoute({
     },
     padding: 80,
     fonts: [
-      "./src/assets/fonts/IBMPlexMono-Regular.ttf",
-      "./src/assets/fonts/IBMPlexMono-SemiBold.ttf",
       "./src/assets/fonts/Poppins-Regular.ttf",
+      "./src/assets/fonts/Poppins-SemiBold.ttf",
     ],
   }),
 });

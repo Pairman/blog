@@ -24,9 +24,9 @@ const { title, description, pubDate, slug, heroImage, tags, noImage } =
       <time datetime="2020-03-16" class="text-base-500">
         <FormattedDate date={pubDate} />
       </time>
-      {tags?.map((tag: string, index: number) => (
-        <span><Tag {tag} />{index < tags.length - 1 ? " " : null}</span>
-      ))}
+      <div class="flex flex-wrap gap-x-1">
+        {tags?.map((tag: string) => <Tag {tag} />)}
+      </div>
     </div>
     <div class="max-w-xl">
       <div
