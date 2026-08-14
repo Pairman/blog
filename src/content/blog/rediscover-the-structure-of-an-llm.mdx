@@ -6,19 +6,21 @@ published: true
 tags: ["ai", "llm", "transformer"]
 ---
 
-For a long time, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
+For long, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
 
 ```
 sequence -> embed -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> ... -> {MHA -> residual -> norm -> FFN -> Linear  residual -> Softmax} -> outputs
 ```
 
-In this depiction, each transformer block appears to consist of `MHA -> FFN -> Linear -> Softmax`.
+Where each transformer block appears to consist of `MHA -> FFN -> Linear -> Softmax`.
 
 If you thought about it this way too, you were just as wrong as I was. There are barely any explanations that explicitly correct this misconception. Because the same figure from [*Attention Is All You Need*](https://arxiv.org/html/1706.03762v7) appears everywhere, newcomers like me can easily misread the architecture and think in the wrong way for a long time.
 
 ![The Transformer - model architecture, from Attention Is All You Need](https://arxiv.org/html/1706.03762v7/Figures/ModalNet-21.png)
 
-To get started, let's think about the structure more generally. A typical neural network can be treated as a function that maps an input to an output, so its structure can be shown as:
+## Think Generally
+
+Let's think about the structure more generally. A typical neural network can be treated as a function that maps an input to an output, so its structure can be shown as:
 
 ```
 input -> network -> output
@@ -47,6 +49,8 @@ For example, an object detector can be shown in the same way:
 ```
 image -> input preprocessing -> backbone -> detection head -> predictions
 ```
+
+## LLM Structure
 
 Likewise, the structure of a typical decoder-only LLM should be depicted as follows:
 

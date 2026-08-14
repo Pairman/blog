@@ -16,3 +16,53 @@ const { class: className } = Astro.props;
 >
   <slot />
 </div>
+
+<script>
+  const headingSelector = ".prose h1[id], .prose h2[id], .prose h3[id], .prose h4[id], .prose h5[id], .prose h6[id]";
+
+  async function copyHeadingLink(heading: HTMLElement) {
+    const url = new URL(window.location.href);
+    url.hash = heading.id;
+    history.replaceState(null, "", url);
+
+    try {
+      await navigator.clipboard.writeText(url.href);
+    } catch {
+      const input = document.createElement("textarea");
+      input.value = url.href;
+      input.style.position = "fixed";
+      input.style.opacity = "0";
+      document.body.appendChild(input);
+      input.select();
+      document.execCommand("copy");
+      input.remove();
+    }
+  }
+
+  document.querySelectorAll<HTMLElement>(headingSelector).forEach((heading) => {
+    heading.tabIndex = 0;
+    heading.setAttribute("role", "link");
+
+    heading.addEventListener("click", (event) => {
+      if ((event.target as Element).closest("a")) return;
+      void copyHeadingLink(heading);
+    });
+
+    heading.addEventListener("keydown", (event) => {
+      if (event.key !== "Enter" && event.key !== " ") return;
+      event.preventDefault();
+      void copyHeadingLink(heading);
+    });
+  });
+</script>
+
+<style is:global>
+  .prose :is(h1, h2, h3, h4, h5, h6)[id] {
+    cursor: pointer;
+  }
+
+  .prose :is(h1, h2, h3, h4, h5, h6)[id]:focus-visible {
+    outline: 1px solid currentColor;
+    outline-offset: 4px;
+  }
+</style>
