@@ -8,7 +8,7 @@ tags: ["ai", "llm", "transformer"]
 
 For long, I depicted the structure of a typical transformer-based LLM (a decoder-only model, for simplicity) like this:
 
-```
+```,wrap
 sequence -> embedding -> {MHA -> residual+norm -> MHA -> residual+norm -> FFN -> Linear -> residual -> Softmax} -> ... -> {MHA -> residual+norm -> FFN -> Linear  residual -> Softmax} -> outputs
 ```
 
@@ -26,31 +26,31 @@ class="w-full sm:w-1/2 h-auto mx-auto"
 
 Let's think about the structure more generally. A typical neural network can be treated as a function that maps an input to an output, so its structure can be shown as:
 
-```
+```,wrap
 input -> network -> output
 ```
 
 The network first processes or projects the input, passes it through its main functional component (the **backbone**), and finally processes the result into the output required by the task. In short:
 
-```
+```,wrap
 pre-processor -> backbone -> task head
 ```
 
 These parts are built from basic arithmetic operations, are usually grouped into **blocks** for re-using. Greater depth enables a network to capture more complex relationships ([*Deep Residual Learning for Image Recognition*](https://arxiv.org/html/1512.03385v1)). Stacking blocks makes the network deeper, forming its backbone:
 
-```
+```,wrap
 backbone block -> backbone block -> ... -> backbone block
 ```
 
 Overall, the structure looks like:
 
-```
+```,wrap
 pre-processor -> backbone (block -> ... -> block) -> task head
 ```
 
 For example, an object detector can be shown in the same way:
 
-```
+```,wrap
 image -> input preprocessing -> backbone -> detection head -> predictions
 ```
 
@@ -58,7 +58,7 @@ image -> input preprocessing -> backbone -> detection head -> predictions
 
 Likewise, the structure of a typical decoder-only LLM should be depicted as follows:
 
-```
+```,wrap
 sequence -> embedding -> transformer -> ... -> transformer -> norm -> Linear -> Softmax -> logits
 ```
 

@@ -57,6 +57,11 @@ const { title, description, image } = Astro.props;
         @apply border border-base-700 bg-black rounded-xl !important;
       }
 
+      pre.code-wrap {
+        white-space: pre-wrap;
+        overflow-wrap: anywhere;
+      }
+
       .astro-code {
         counter-reset: line;
       }

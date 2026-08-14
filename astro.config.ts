@@ -3,6 +3,7 @@ import { defineConfig } from "astro/config";
 import { resolve } from "path";
 import remarkMath from "remark-math";
 import rehypeMathjax from "rehype-mathjax";
+import remarkCodeWrap from "./src/remark-code-wrap";
 
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
@@ -70,11 +71,23 @@ export default defineConfig({
       transformers: [
         transformerMetaHighlight(),
         transformerNotationHighlight(),
+        {
+          name: "code-wrap",
+          pre(node) {
+            const meta = this.options.meta?.__raw?.split(/\s+/) ?? [];
+
+            if (meta.includes("wrap")) {
+              node.properties.class = [node.properties.class, "code-wrap"]
+                .filter(Boolean)
+                .join(" ");
+            }
+          },
+        },
       ],
       wrap: false,
     },
 
-    remarkPlugins: [remarkMath],
+    remarkPlugins: [remarkCodeWrap, remarkMath],
     rehypePlugins: [rehypeMathjax],
   },
 
