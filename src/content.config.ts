@@ -22,8 +22,7 @@ const blog = defineCollection({
     // if set to false the post will not be shown in the blog list nor be accessible by url
     published: z.boolean().optional(),
 
-    // whether to hide the post from the blog list (can still be accessed by url)
-    // useful for sharing drafts with other people
+    // whether to exclude the post from all generated pages
     hidden: z.boolean().optional(),
 
     // short description will be used for og image (fallback to description)
