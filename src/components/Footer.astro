@@ -12,7 +12,7 @@ const { showBorder = false } = Astro.props;
       { "border-t border-base-200 dark:border-base-800": showBorder },
     ]}
   >
-    <div class="flex justify-center items-center gap-x-6 text-base-500 [&_a]:!text-base-500 hover:[&_a]:!text-base-200 md:order-2">
+    <div class="flex justify-center items-center gap-x-6 text-sm/6 font-normal text-base-500 [&_a]:!text-base-500 hover:[&_a]:!text-base-200 md:order-2">
       {
         SOCIAL_LINKS.FACEBOOK_URL ? (
           <a
@@ -149,7 +149,7 @@ const { showBorder = false } = Astro.props;
             href={SOCIAL_LINKS.GITHUB_URL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
-            <span aria-label="GitHub" class="text-xs font-bold">GITHUB</span>
+            <span aria-label="GitHub">GITHUB</span>
           </a>
         ) : null
       }
@@ -183,7 +183,7 @@ const { showBorder = false } = Astro.props;
             href={"mailto:" + SOCIAL_LINKS.EMAIL}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
-            <span aria-label={SOCIAL_LINKS.EMAIL} class="text-xs font-bold">MAIL</span>
+            <span aria-label={SOCIAL_LINKS.EMAIL}>MAIL</span>
           </a>
         ) : null
       }
@@ -194,7 +194,7 @@ const { showBorder = false } = Astro.props;
             href={BASE + "/rss.xml"}
             class="text-base-600 hover:text-base-800 dark:text-base-400 dark:hover:text-base-200"
           >
-            <span aria-label="RSS feed" class="text-xs font-bold">RSS</span>
+            <span aria-label="RSS feed">RSS</span>
           </a>
         ) : null
       }
@@ -204,17 +204,6 @@ const { showBorder = false } = Astro.props;
     >
       &copy; {today.getFullYear()}
       {NAME}. {LICENSE}
-      {
-        SOURCE_LINK ? (
-          <a
-            href={SOURCE_LINK}
-            target="_blank"
-            class="text-accent-600 hover:text-accent-500 dark:text-accent-500 dark:hover:text-accent-400 font-medium"
-          >
-            Source
-          </a>
-        ) : null
-      }
     </p>
   </div>
 </footer>
