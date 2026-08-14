@@ -2,10 +2,8 @@
 import {
   BASE,
   SEARCH_ENABLED,
-  SITE_FAVICON,
   SITE_NAME,
   SITE_TITLE,
-  SHOW_FAVICON_IN_HEADER,
 } from "../config.ts";
 import HeaderLink from "./HeaderLink.astro";
 import CodeCopyButton from "./CodeCopyButton.astro";
@@ -26,7 +24,6 @@ const { active } = Astro.props;
         <span class="sr-only">go to home</span>
 
         <div class="text-3xl flex items-center gap-x-2">
-          {SHOW_FAVICON_IN_HEADER ? SITE_FAVICON : null}
           <span
             class="font-bold uppercase text-base text-base-950 dark:text-base-50"
             >{SITE_NAME || SITE_TITLE}</span
