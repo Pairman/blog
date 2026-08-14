@@ -13,6 +13,7 @@ const { showBorder = false } = Astro.props;
     ]}
   >
     <div class="flex justify-center items-center gap-x-6 text-sm/6 font-normal text-base-500 [&_a]:!text-base-500 hover:[&_a]:!text-base-200 md:order-2">
+      <a href={BASE + "/about"}>ABOUT</a>
       {SOCIAL_LINKS.GITHUB_URL ? (
         <a target="_blank" href={SOCIAL_LINKS.GITHUB_URL}>
           <span aria-label="GitHub">GITHUB</span>
