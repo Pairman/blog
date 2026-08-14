@@ -15,7 +15,7 @@
     viewBox="0 0 24 24"
     stroke-width="1.5"
     stroke="currentColor"
-    class="w-5 h-5 text-stone-900 dark:text-stone-50 hover:text-stone-600 dark:hover:text-stone-400"
+    class="w-5 h-5 text-stone-900 dark:text-stone-400 hover:text-stone-600 dark:hover:text-stone-50"
   >
     <path
       stroke-linecap="round"
